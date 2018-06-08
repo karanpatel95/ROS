@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>actionlib_examples</name>
+  <name>actionlib_ros</name>
   <version>0.0.0</version>
   <description>The actionlib_examples package</description>
 

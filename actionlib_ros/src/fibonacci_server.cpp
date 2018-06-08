@@ -1,16 +1,16 @@
 #include <ros/ros.h>
 #include <actionlib/server/simple_action_server.h>
-#include <actionlib_examples/FibonacciAction.h>
+#include <actionlib_ros/FibonacciAction.h>
 
 class FibonacciAction{
 
 protected:
     ros::NodeHandle nh_;
-    actionlib::SimpleActionServer<actionlib_examples::FibonacciAction> as_;
+    actionlib::SimpleActionServer<actionlib_ros::FibonacciAction> as_;
     std::string action_name_;
 
-    actionlib_examples::FibonacciFeedback feedback_;
-    actionlib_examples::FibonacciResult result_;
+    actionlib_ros::FibonacciFeedback feedback_;
+    actionlib_ros::FibonacciResult result_;
 
 public:
     FibonacciAction(std::string name) : action_name_(name),
@@ -24,7 +24,7 @@ public:
 
     }
 
-    void executeCB(actionlib_examples::FibonacciGoalConstPtr goal){
+    void executeCB(actionlib_ros::FibonacciGoalConstPtr goal){
 
         ros::Rate r(1);
         bool success = true;
