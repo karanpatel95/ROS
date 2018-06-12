@@ -1,34 +1,18 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(actionlib_ros)
+project(rviz_plugin)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-add_compile_options(-std=c++11)
+# add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  actionlib
-  actionlib_msgs
   roscpp
 )
 
 ## System dependencies are found with CMake's conventions
 find_package(Boost REQUIRED COMPONENTS system)
-
-## Generate actions in the 'action' folder
-add_action_files(
-  FILES
-  Fibonacci.action
-  #Action2.action
-)
-
-## Generate added messages and services with any dependencies listed here
-generate_messages(
-  DEPENDENCIES
-  actionlib_msgs
-  std_msgs
-)
 
 ###################################
 ## catkin specific configuration ##
@@ -41,8 +25,8 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES actionlib_examples
-   CATKIN_DEPENDS actionlib_msgs roscpp
+#  LIBRARIES rviz_plugin
+#  CATKIN_DEPENDS roscpp
 #  DEPENDS system_lib
 )
 
@@ -59,7 +43,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/actionlib_examples.cpp
+#   src/${PROJECT_NAME}/rviz_plugin.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -70,8 +54,8 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(fibonacci_server src/fibonacci_server.cpp)
-add_executable(fibonacci_client src/fibonacci_client.cpp)
+# add_executable(${PROJECT_NAME}_node src/rviz_plugin_node.cpp)
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -83,10 +67,6 @@ add_executable(fibonacci_client src/fibonacci_client.cpp)
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(fibonacci_server
-  ${catkin_LIBRARIES}
-)
-target_link_libraries(fibonacci_client
-  ${catkin_LIBRARIES}
-)
-
+# target_link_libraries(${PROJECT_NAME}_node
+#   ${catkin_LIBRARIES}
+# )
